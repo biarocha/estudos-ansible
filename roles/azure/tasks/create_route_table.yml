@@ -1,0 +1,4 @@
+- name: Create a route table
+  azure_rm_routetable:
+    resource_group: "{{ create_route_table.rg_name }}"
+    name: "{{ create_route_table.name }}"

@@ -1,0 +1,5 @@
+- name: Create security group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: "{{ create_nsg.rg_name }}"
+    name: "{{ create_nsg.name }}"
+    rules: "{{ create_nsg.rules | default(omit)}}"

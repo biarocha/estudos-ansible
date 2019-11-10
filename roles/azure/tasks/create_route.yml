@@ -1,0 +1,8 @@
+- name: Create a route
+  azure_rm_route:
+    resource_group: "{{ create_route.rg_name}}"
+    name: "{{ create_route.name }}"
+    address_prefix: "{{ create_route.address_prefix }}"
+    next_hop_type: virtual_appliance
+    next_hop_ip_address: "{{ create_route.next_hop_ip_address }}"
+    route_table_name: "{{ create_route.route_table_name }}"

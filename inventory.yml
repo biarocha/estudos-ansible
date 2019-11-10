@@ -1,0 +1,75 @@
+inventory:
+  rg_name: awx_teste
+  network:
+    external:
+      nsg_name: nsg_external
+      nsg_rules:
+        - name: teste1
+          protocol: Tcp
+          destination_port_range: 80
+          access: Allow
+          priority: 101
+          direction: Inbound
+        - name: teste2
+          protocol: Tcp
+          destination_port_range: 8080
+          access: Allow
+          priority: 102
+          direction: Inbound
+      route_table:
+        name: route_table_external
+      routes:
+        - name: teste-route1
+          address_prefix: 0.0.0.0/0
+          next_hop_ip_address: 10.0.0.4
+        - name: teste-route4
+          address_prefix: 192.168.0.0/27
+          next_hop_ip_address: 10.0.0.4
+    internal:
+      nsg_name: nsg_internal
+      nsg_rules:
+        - name: teste3
+          protocol: Tcp
+          destination_port_range: 80
+          access: Allow
+          priority: 101
+          direction: Inbound
+        - name: teste4
+          protocol: Tcp
+          destination_port_range: 8080
+          access: Allow
+          priority: 102
+          direction: Inbound
+      route_table:
+        name: route_table_internal
+      routes:
+        - name: teste-route2
+          address_prefix: 0.0.0.0/0
+          next_hop_ip_address: 10.0.0.4
+        - name: teste-route5
+          address_prefix: 192.168.0.0/27
+          next_hop_ip_address: 10.0.0.4
+    mgmt:
+      nsg_name: nsg_mgmt
+      nsg_rules:
+        - name: teste5
+          protocol: Tcp
+          destination_port_range: 80
+          access: Allow
+          priority: 101
+          direction: Inbound
+        - name: teste6
+          protocol: Tcp
+          destination_port_range: 8080
+          access: Allow
+          priority: 102
+          direction: Inbound
+      route_table:
+        name: route_table_mgmt
+      routes:
+        - name: teste-route3
+          address_prefix: 0.0.0.0/0
+          next_hop_ip_address: 10.0.0.4
+        - name: teste-route6
+          address_prefix: 192.168.0.0/27
+          next_hop_ip_address: 10.0.0.4

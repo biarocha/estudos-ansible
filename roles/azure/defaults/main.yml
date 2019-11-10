@@ -1,0 +1,15 @@
+create_nsg:
+  name:
+  rg_name:
+  rules:
+
+create_route_table:
+  name:
+  rg_name:
+
+create_route:
+  name:
+  rg_name:
+  address_prefix:
+  route_table_name:
+  next_hop_ip_address:

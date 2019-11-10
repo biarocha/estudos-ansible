@@ -1,0 +1,40 @@
+---
+- name: deploy resources
+  hosts: localhost
+  tasks:
+  - name: Create nsgs
+    include_role:
+      name: azure
+      tasks_from: create_nsg
+    with_dict: "{{ inventory.network}}"
+    vars:
+      create_nsg:
+        name: "{{ item.value.nsg_name }}"
+        rg_name: "{{ inventory.rg_name }}"
+        rules: "{{ item.value.nsg_rules }}"
+  - name: create route tables
+    include_role:
+      name: azure
+      tasks_from: create_route_table
+    with_dict: "{{ inventory.network }}"
+    vars:
+      create_route_table:
+        name: "{{ item.value.route_table.name }}"
+        rg_name: "{{ inventory.rg_name }}"
+  - name: create routes
+    include_role:
+      name: azure
+      tasks_from: create_route
+    with_subelements: 
+      - "{{ inventory.network }}"
+      - routes
+    vars:
+      create_route:
+        name: "{{ item.1.name }}"
+        rg_name: "{{ inventory.rg_name }}"
+        address_prefix: "{{ item.1.address_prefix }}"
+        next_hop_ip_address: "{{ item.1.next_hop_ip_address }}"
+        route_table_name: "{{ item.0.route_table.name}}"
+
+
+      
