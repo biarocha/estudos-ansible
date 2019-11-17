@@ -6,7 +6,7 @@ form:
     vmName:
       value: windows-teste
     adminUsername:
-      value: biarocha
+      value: <>
     adminPassword:
       value: <>
     vmSize:
