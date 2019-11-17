@@ -2,6 +2,7 @@ inventory:
   location: eastus
   rg_name: estudo_exame
   auth_info: '{{ _vault_auth_info }}'
+  vm_template_uri: '<>'
   vm_info:
     location:
       value: eastus
@@ -14,7 +15,7 @@ inventory:
     storageAccountType:
       value: Standard_LRS
     workspaceId:
-      value: <>
+      value: '{{ _vault_workspace_info.id }}'
     workspaceKey:
-      value: <>
+      value: '{{ _vault_workspace_info.key }}'
 vault_path: /var/lib/awx/projects/vault/azure.vault

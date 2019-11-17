@@ -13,11 +13,11 @@
       tasks_from: deploy_arm_template
     vars:
       deploy_arm_template:
-        name: "vm_deploy_" "{{ ansible_date_time.date}}"
+        name: "vm_deploy_{{ ansible_date_time.date}}_{{ ansible_date_time.time}}"
         rg_name: "{{ form.rg_name }}"
         location: "{{ inventory.location }}"
         subscription_id: "{{ form.subscription_id }}" 
-        template_uri: '<>'
+        template_uri: "{{ inventory.vm_template_uri }}" 
         parameters: "{{ vm_info }}"
         client_id: "{{ inventory.auth_info.client_id }}"
         secret: "{{ inventory.auth_info.secret }}"
