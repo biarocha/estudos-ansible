@@ -24,3 +24,10 @@ deploy_arm_template:
   client_id:
   secret:
   tenant:
+
+create_subscription:
+  enrollmentAccount:
+  subscription_name:
+  offer_type:
+  owners:
+  
