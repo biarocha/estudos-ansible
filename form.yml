@@ -1,0 +1,36 @@
+form:
+  rg_name: estudo_exame
+  subscription_id: <>
+  environment:
+  vm_info:
+    vmName:
+      value: windows-teste
+    adminUsername:
+      value: biarocha
+    adminPassword:
+      value: <>
+    vmSize:
+      value: Standard_D2
+    storageNewOrExisting:
+      value: new
+    storageAccountName:
+      value: biablablatestevm
+    storageAccountResourceGroupName:
+      value: estudo_exame
+    availabilitySetNewOrExisting:
+      value: new
+    availabilitySetName:
+      value: av-teste
+    virtualNetworkName:
+      value: estudo-vnet
+    subnetName:
+      value: subnet
+    virtualNetworkResourceGroupName:
+      value: estudo_exame
+    customScriptStorageAccount:
+      value: <>
+    customScriptFileUri:
+      value: <>
+    customScriptCommandToExecute:
+      value: "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
+

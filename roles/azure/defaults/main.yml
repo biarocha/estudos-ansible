@@ -13,3 +13,14 @@ create_route:
   address_prefix:
   route_table_name:
   next_hop_ip_address:
+
+deploy_arm_template:
+  name:
+  rg_name:
+  location:
+  subscription_id:
+  template_uri:
+  parameters:
+  client_id:
+  secret:
+  tenant:

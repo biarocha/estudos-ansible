@@ -1,0 +1,20 @@
+inventory:
+  location: eastus
+  rg_name: estudo_exame
+  auth_info: '{{ _vault_auth_info }}'
+  vm_info:
+    location:
+      value: eastus
+    galleryName:
+      value: galeriateste
+    galleryImageDefinitionName:
+      value: myImageDefinition
+    galleryImageVersionName:
+      value: latest
+    storageAccountType:
+      value: Standard_LRS
+    workspaceId:
+      value: <>
+    workspaceKey:
+      value: <>
+vault_path: /var/lib/awx/projects/vault/azure.vault

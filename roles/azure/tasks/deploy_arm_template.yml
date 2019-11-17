@@ -1,0 +1,12 @@
+- name: Deploy resource with an ARM template
+  azure_rm_deployment:
+    subscription_id: "{{ deploy_arm_template.subscription_id }}"
+    resource_group: "{{ deploy_arm_template.rg_name}}"
+    location: "{{ deploy_arm_template.location}}"
+    name: "{{ deploy_arm_template.name }}"
+    template_link: "{{ deploy_arm_template.template_uri }}"
+    parameters: "{{ deploy_arm_template.parameters }}"
+    state: present
+    client_id: "{{ deploy_arm_template.client_id }}"
+    tenant: "{{ deploy_arm_template.tenant }}"
+    secret: "{{ deploy_arm_template.secret }}"

@@ -1,0 +1,24 @@
+---
+- name: deploy vm with ARM template
+  hosts: localhost
+  vars_files:
+    - "{{ vault_path }}"
+  tasks:
+  - name: Combining inventory and form info about VM
+    set_fact:
+      vm_info: "{{ form.vm_info | combine(inventory.vm_info) }}"
+  - name: Deploying VM
+    include_role:
+      name: azure
+      tasks_from: deploy_arm_template
+    vars:
+      deploy_arm_template:
+        name: "vm_deploy_" "{{ ansible_date_time.date}}"
+        rg_name: "{{ form.rg_name }}"
+        location: "{{ inventory.location }}"
+        subscription_id: "{{ form.subscription_id }}" 
+        template_uri: '<>'
+        parameters: "{{ vm_info }}"
+        client_id: "{{ inventory.auth_info.client_id }}"
+        secret: "{{ inventory.auth_info.secret }}"
+        tenant: "{{ inventory.auth_info.tenant }}"
