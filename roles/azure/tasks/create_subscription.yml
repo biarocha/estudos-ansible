@@ -1,0 +1,12 @@
+---
+- name: Create New Subscription with API
+  uri:
+    url: https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{{ create_subscription.enrollmentAccount }}/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+    method: POST
+    body_format: form-urlencoded
+    body:
+      displayName: "{{ create_subscription.subscription_name }}"
+      offerType: "{{ create_subscription.offer_type }}"
+      owners: "{{ create_subscription.owners }}"
+    status_code: 200
+  register: result

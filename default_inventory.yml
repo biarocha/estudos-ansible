@@ -1,0 +1,5 @@
+inventory:
+  location: eastus
+  rg_name: estudo_exame
+  subscription_info: '{{ _vault_subscription_info }}'
+vault_path: /var/lib/awx/projects/vault/azure.vault

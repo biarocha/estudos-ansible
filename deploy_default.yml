@@ -1,0 +1,18 @@
+---
+- name: Deploy default infraestructure for subscription
+  hosts: localhost
+  vars_files:
+    - "{{ vault_path }}"
+  tasks:
+  - name: Create new subscription
+    include_role:
+      name: azure
+      tasks_from: create_subscription
+    vars:
+      create_subscription:
+        enrollmentAccount: "{{ inventory.subscription_info.enrollmentAccount }}"
+        subscription_name: "{{ form.subscription_name }}"
+        offer_type: "{{ form.offer_type }}"
+        owners: "{{ inventory.subscription_info.owners }}"
+#  - name: Create virtual network
+    #TO DO

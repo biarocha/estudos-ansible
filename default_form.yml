@@ -1,0 +1,11 @@
+---
+form:
+  offer_type: MS-AZR-0017P
+  subscription_name: TESTE_SUB
+  rg_name:
+  vnet_name:
+  vnet_address_space:
+  subnet_name:
+  subnet_address_space:
+  nsg_name:
+
